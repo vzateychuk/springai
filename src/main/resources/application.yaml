@@ -9,3 +9,10 @@ spring:
         options:
           model: ${MODEL_NAME:qwen2.5-coder:1.5b}
           temperature: 0.5
+
+server:
+  port: 8080
+
+app:
+  chat:
+    system-prompt-location: classpath:prompts/system.md

@@ -1,35 +1,33 @@
 package ru.vez.springai.chat;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.mockito.ArgumentMatchers.any;
+import static org.mockito.ArgumentMatchers.anyString;
 import static org.mockito.Mockito.when;
 
-import java.util.List;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
-import org.springframework.ai.chat.messages.AssistantMessage;
-import org.springframework.ai.chat.model.ChatModel;
-import org.springframework.ai.chat.model.ChatResponse;
-import org.springframework.ai.chat.model.Generation;
-import org.springframework.ai.chat.prompt.Prompt;
+import org.springframework.ai.chat.client.ChatClient;
 
 @ExtendWith(MockitoExtension.class)
 class ChatServiceTest {
 
-  @Mock private ChatModel chatModel;
+  @Mock private ChatClient chatClient;
+
+  @Mock private ChatClient.ChatClientRequestSpec requestSpec;
+
+  @Mock private ChatClient.CallResponseSpec callResponseSpec;
 
   @InjectMocks private ChatService chatService;
 
   @Test
   void chatReturnsModelResponse() {
-    AssistantMessage assistantMessage = new AssistantMessage("AI reply");
-    Generation generation = new Generation(assistantMessage);
-    ChatResponse chatResponse = new ChatResponse(List.of(generation));
-
-    when(chatModel.call(any(Prompt.class))).thenReturn(chatResponse);
+    when(chatClient.prompt()).thenReturn(requestSpec);
+    when(requestSpec.user(anyString())).thenReturn(requestSpec);
+    when(requestSpec.call()).thenReturn(callResponseSpec);
+    when(callResponseSpec.content()).thenReturn("AI reply");
 
     String result = chatService.chat("Hello");
 

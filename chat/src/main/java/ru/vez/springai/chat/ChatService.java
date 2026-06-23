@@ -1,23 +1,22 @@
 package ru.vez.springai.chat;
 
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.ai.chat.model.ChatModel;
-import org.springframework.ai.chat.prompt.Prompt;
+import org.springframework.ai.chat.client.ChatClient;
 import org.springframework.stereotype.Service;
 
 @Service
 @Slf4j
 public class ChatService {
 
-  private final ChatModel chatModel;
+  private final ChatClient chatClient;
 
-  public ChatService(ChatModel chatModel) {
-    this.chatModel = chatModel;
+  public ChatService(ChatClient chatClient) {
+    this.chatClient = chatClient;
   }
 
   public String chat(String message) {
     log.info("Sending message to LLM: {}", message);
-    String resp = chatModel.call(new Prompt(message)).getResult().getOutput().getText();
+    String resp = chatClient.prompt().user(message).call().content();
     log.info("Received response from LLM: {}", resp);
     return resp;
   }

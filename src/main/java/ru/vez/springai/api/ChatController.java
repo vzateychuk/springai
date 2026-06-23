@@ -10,7 +10,7 @@ import ru.vez.springai.api.dto.ChatResponse;
 import ru.vez.springai.chat.ChatService;
 
 @RestController
-@RequestMapping("/v1/api/chat")
+@RequestMapping("/api/v1/chat")
 public class ChatController {
 
   private final ChatService chatService;

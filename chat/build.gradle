@@ -19,7 +19,7 @@ dependencies {
     api platform('org.springframework.boot:spring-boot-dependencies:4.1.0')
     api platform("org.springframework.ai:spring-ai-bom:${rootProject.springAiVersion}")
     api 'org.springframework:spring-context'
-    implementation 'org.springframework.ai:spring-ai-model'
+    implementation 'org.springframework.ai:spring-ai-client-chat'
 
     // Lombok
     compileOnly 'org.projectlombok:lombok:1.18.26'
