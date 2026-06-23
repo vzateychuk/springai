@@ -1,0 +1,11 @@
+spring:
+  application:
+    name: springai
+  ai:
+    openai:
+      base-url: ${OPENAI_BASE_URL:http://localhost:11434/v1}
+      api-key: ${OPENAI_API_KEY:sk-xxxx}
+      chat:
+        options:
+          model: ${MODEL_NAME:qwen2.5-coder:1.5b}
+          temperature: 0.5

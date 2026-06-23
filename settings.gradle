@@ -1,0 +1,4 @@
+rootProject.name = 'springai'
+
+// Подключаем модуль chat
+include 'chat'

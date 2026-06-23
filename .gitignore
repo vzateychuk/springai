@@ -1,0 +1,89 @@
+# AI
+.cursor/
+.qwen/
+.opencode/
+.codex/
+.copilot/
+.pi/
+.mimo/
+.claude/
+
+# Java
+*.class
+*.jar
+*.war
+*.ear
+*.log
+
+# Gradle
+.gradle/
+build/
+dist/
+*.iml
+.idea/
+
+# IDE specific
+*.ipr
+*.iws
+out/
+
+# Eclipse
+.bin/
+.classpath
+.project
+.settings/
+
+# VS Code
+.vscode/
+
+# Mac OS
+.DS_Store
+
+# Local environment files
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# Logs
+logs/
+
+# Database files
+*.db
+*.sqlite
+*.sqlite3
+
+# Dependency directories
+lib/
+
+# Maven
+.dependency-tree
+
+# Spring Boot
+application.properties.local
+application.yml.local
+
+# Test coverage
+.coverage
+
+# Gradle wrapper
+!gradlew
+!gradlew.bat
+!gradle/
+
+# Build tool generated files
+*.orig
+*~
+
+# Cache files
+*.swp
+*.swo
+.cache/
+
+# Node (если используется frontend)
+node_modules/
+npm-debug.log
+
+# Yarn
+yarn-error.log
