@@ -16,3 +16,8 @@ server:
 app:
   chat:
     system-prompt-location: classpath:prompts/system.md
+
+logging:
+  level:
+    root: INFO
+    org.springframework.ai.chat.client.advisor: DEBUG
