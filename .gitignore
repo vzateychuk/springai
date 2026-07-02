@@ -8,6 +8,10 @@
 .mimo/
 .claude/
 
+# My
+.env/
+.run/
+
 # Java
 *.class
 *.jar
