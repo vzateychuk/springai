@@ -15,7 +15,6 @@ server:
 
 app:
   chat:
-    system-prompt-location: classpath:prompts/system.md
     memory-max-messages: 10
 
 logging:

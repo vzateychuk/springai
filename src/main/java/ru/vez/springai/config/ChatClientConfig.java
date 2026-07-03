@@ -26,16 +26,11 @@ public class ChatClientConfig {
   }
 
   @Bean
-  ChatClient chatClient(
-    ChatClient.Builder builder,
-    ChatProperties props,
-    ChatMemory chatMemory
-  ) throws IOException {
-    RequestLogFormatter reqLog = new RequestLogFormatter();
-    ResponseLogFormatter respLog = new ResponseLogFormatter();
-    String systemPrompt = props.loadSystemPrompt().formatted(System.getProperty("user.dir"));
+  ChatClient chatClient(ChatClient.Builder builder, ChatMemory chatMemory) throws IOException {
+    RequestLogFormatter formatReq = new RequestLogFormatter();
+    ResponseLogFormatter formatResp = new ResponseLogFormatter();
     return builder
-        .defaultSystem(systemPrompt)
+        .defaultSystem(SystemPromptAssembler.assemble())
         .defaultTools(
             FileSystemTools.builder().build(),
             GrepTool.builder().build(),
@@ -44,8 +39,8 @@ public class ChatClientConfig {
         .defaultAdvisors(
             MessageChatMemoryAdvisor.builder(chatMemory).build(),
             SimpleLoggerAdvisor.builder()
-                .requestToString(reqLog::format)
-                .responseToString(respLog::format)
+                .requestToString(formatReq::format)
+                .responseToString(formatResp::format)
                 .build())
         .build();
   }
