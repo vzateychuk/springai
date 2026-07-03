@@ -16,8 +16,9 @@ server:
 app:
   chat:
     system-prompt-location: classpath:prompts/system.md
+    memory-max-messages: 10
 
 logging:
   level:
-    root: INFO
+    root: WARN
     org.springframework.ai.chat.client.advisor: DEBUG

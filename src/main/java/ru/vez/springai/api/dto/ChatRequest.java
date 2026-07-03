@@ -2,4 +2,7 @@ package ru.vez.springai.api.dto;
 
 import jakarta.validation.constraints.NotBlank;
 
-public record ChatRequest(@NotBlank String message) {}
+public record ChatRequest(
+  @NotBlank String conversationId,
+  @NotBlank String msg
+) {}
